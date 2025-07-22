@@ -1,4 +1,3 @@
-
 package com.tienda.service.impl;
 
 import com.tienda.dao.CategoriaDao;
@@ -20,7 +19,8 @@ public class CategoriaServiceImpl implements CategoriaService {
     @Override
     @Transactional(readOnly = true)
     public List<Categoria> getCategorias(boolean activos) {
-        var lista = categoriaDao.findAll();
+        List<Categoria> lista = categoriaDao.findAll();
+
         if (activos) {
             lista.removeIf(e -> !e.isActivo());
         }
